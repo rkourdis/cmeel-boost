@@ -1,0 +1,5 @@
+import python ;
+if ! [ python.configured ]
+{
+    using python : @PYTHON_VERSION@ : @PYTHON_EXECUTABLE@ : @PYTHON_INCLUDE_DIR@ ;
+}
