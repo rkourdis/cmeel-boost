@@ -1,0 +1,16 @@
+[project]
+name = "cmeel-boost"
+version = "1.79.0"
+description = "boost distribution for Eigen. Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
+readme = "README.md"
+requires-python = ">= 3.8"
+license = "BSL-1.0"
+
+[project.urls]
+homepage = "https://github.com/cmeel/cmeel-boost"
+repository = "https://github.com/cmeel/cmeel-boost.git"
+
+[build-system]
+requires = ["cmeel[build]>=0.6.2"]
+build-backend = "cmeel.build"
+run_tests = false
