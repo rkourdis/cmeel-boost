@@ -25,7 +25,7 @@ ExternalProject_Add(Boost
   # append python configuration to generated project-config.jam
   COMMAND "sed" "-i" "-e" "1 e cat ${CMAKE_BINARY_DIR}/python.jam" "project-config.jam"
   BUILD_COMMAND "./b2" "link=shared" "python=${PYTHON_VERSION}"
-  INSTALL_COMMAND "./b2" "install"
+  INSTALL_COMMAND "./b2" "link=shared" "python=${PYTHON_VERSION}" "install"
   )
 
 # dummy file for install target
