@@ -14,4 +14,4 @@ repository = "https://github.com/cmeel/cmeel-boost.git"
 [build-system]
 requires = ["cmeel[build]"]
 build-backend = "cmeel.build"
-run_tests = false
+run-tests = false
