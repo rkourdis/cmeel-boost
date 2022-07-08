@@ -1,5 +1,5 @@
 import python ;
 if ! [ python.configured ]
 {
-    using python : @PYTHON_VERSION@ : @PYTHON_EXECUTABLE@ : @PYTHON_INCLUDE_DIR@ ;
+    using python : 3.@Python3_VERSION_MINOR@ : @Python3_EXECUTABLE@ : @Python3_INCLUDE_DIRS@ ;
 }
