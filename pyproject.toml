@@ -1,11 +1,11 @@
 [project]
 name = "cmeel-boost"
-version = "1.79.0"
+version = "1.80.0"
 description = "cmeel distribution for boost, which provides free peer-reviewed portable C++ source libraries."
 readme = "README.md"
 requires-python = ">= 3.8"
 license = "BSL-1.0"
-dependencies = ["numpy==1.22.3"]
+dependencies = ["numpy==1.23.3"]
 
 [project.urls]
 homepage = "https://github.com/cmeel/cmeel-boost"
