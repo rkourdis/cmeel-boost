@@ -32,7 +32,9 @@ ExternalProject_Add(Boost
   BUILD_IN_SOURCE ON
   CONFIGURE_COMMAND "./bootstrap.sh" "--prefix=${CMAKE_INSTALL_PREFIX}"
   # append python configuration to generated project-config.jam
-  COMMAND "sed" "-i" "-e" "1 e cat ${CMAKE_BINARY_DIR}/python.jam" "project-config.jam"
+  COMMAND ${Python3_EXECUTABLE} "-c"
+  "with open('${CMAKE_BINARY_DIR}/python.jam', 'a+') as a, open('project-config.jam') as b: a.write(b.read())"
+  COMMAND mv "${CMAKE_BINARY_DIR}/python.jam" "project-config.jam"
   BUILD_COMMAND ${BUILD_COMMAND}
   INSTALL_COMMAND ${BUILD_COMMAND} "install"
   )
