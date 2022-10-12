@@ -12,10 +12,16 @@ find_package(Python3 REQUIRED)
 
 configure_file(python.jam.in python.jam)
 
+if(APPLE)
+  set(ORIGIN "@loader_path")
+else()
+  set(ORIGIN "\$ORIGIN")
+endif()
+
 set(BUILD_COMMAND
   "./b2"
   "hardcode-dll-paths=true"
-  "dll-path='$ORIGIN'"
+  "dll-path='${ORIGIN}'"
   "link=shared"
   "python=3.${Python3_VERSION_MINOR}"
   )
