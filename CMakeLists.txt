@@ -8,7 +8,7 @@ project(cmeel-boost VERSION ${Boost_VERSION_STRING})
 string(REPLACE "." "_" Boost_VERSION_UNDERSCORES ${Boost_VERSION_STRING})
 set(Boost_ARCHIVE "boost_${Boost_VERSION_UNDERSCORES}.tar.bz2")
 
-find_package(Python3 REQUIRED)
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
 
 configure_file(python.jam.in python.jam)
 
