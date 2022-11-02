@@ -30,6 +30,7 @@ include(ExternalProject)
 ExternalProject_Add(Boost
   URL "https://boostorg.jfrog.io/artifactory/main/release/${Boost_VERSION_STRING}/source/${Boost_ARCHIVE}"
   BUILD_IN_SOURCE ON
+  PATCH_COMMAND sed -i.bak 116d libs/python/src/object/enum.cpp
   CONFIGURE_COMMAND "./bootstrap.sh" "--prefix=${CMAKE_INSTALL_PREFIX}"
   # append python configuration to generated project-config.jam
   COMMAND ${Python3_EXECUTABLE} "-c"
