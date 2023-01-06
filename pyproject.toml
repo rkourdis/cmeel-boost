@@ -1,6 +1,6 @@
 [project]
 name = "cmeel-boost"
-version = "1.80.0"
+version = "1.80.0.1"
 description = "cmeel distribution for boost, which provides free peer-reviewed portable C++ source libraries."
 readme = "README.md"
 requires-python = ">= 3.7"
@@ -12,7 +12,6 @@ homepage = "https://github.com/cmeel/cmeel-boost"
 repository = "https://github.com/cmeel/cmeel-boost.git"
 
 [tool.cmeel]
-build-number = 4
 run-tests = false
 
 [build-system]
