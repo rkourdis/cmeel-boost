@@ -13,7 +13,7 @@ repository = "https://github.com/cmeel/cmeel-boost.git"
 
 [tool.cmeel]
 run-tests = false
-build-number = 1
+build-number = 2
 
 [build-system]
 requires = ["cmeel[build]", 'numpy']
