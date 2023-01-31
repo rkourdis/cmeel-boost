@@ -8,8 +8,8 @@ license = "BSL-1.0"
 dependencies = ['numpy']
 
 [project.urls]
-homepage = "https://github.com/cmeel/cmeel-boost"
-repository = "https://github.com/cmeel/cmeel-boost.git"
+homepage = "https://github.com/cmake-wheel/cmeel-boost"
+repository = "https://github.com/cmake-wheel/cmeel-boost.git"
 
 [tool.cmeel]
 build-number = 3
