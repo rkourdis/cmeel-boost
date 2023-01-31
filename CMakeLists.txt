@@ -26,9 +26,14 @@ set(BUILD_COMMAND
   "python=3.${Python3_VERSION_MINOR}"
   )
 
+if(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
+  set(BUILD_COMMAND ${BUILD_COMMAND} "architecture=arm")
+endif()
+
 include(ExternalProject)
 ExternalProject_Add(Boost
   URL "https://boostorg.jfrog.io/artifactory/main/release/${Boost_VERSION_STRING}/source/${Boost_ARCHIVE}"
+  DOWNLOAD_EXTRACT_TIMESTAMP OFF
   BUILD_IN_SOURCE ON
   CONFIGURE_COMMAND "./bootstrap.sh" "--prefix=${CMAKE_INSTALL_PREFIX}"
   # append python configuration to generated project-config.jam
