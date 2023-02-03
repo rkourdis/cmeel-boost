@@ -26,8 +26,9 @@ set(BUILD_COMMAND
   "python=3.${Python3_VERSION_MINOR}"
   )
 
-if(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
-  set(BUILD_COMMAND ${BUILD_COMMAND} "architecture=arm")
+if(APPLE AND CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
+  set(BUILD_COMMAND ${BUILD_COMMAND} "cxxflags=-arch arm64")
+  message(STATUS "BUILD_COMMAND: ${BUILD_COMMAND}")
 endif()
 
 include(ExternalProject)
