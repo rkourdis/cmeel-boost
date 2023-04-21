@@ -22,5 +22,5 @@ homepage = "https://github.com/cmake-wheel/cmeel-boost"
 repository = "https://github.com/cmake-wheel/cmeel-boost.git"
 
 [tool.cmeel]
-build-number = 11
+build-number = 12
 run-tests = false
