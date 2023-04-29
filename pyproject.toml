@@ -1,21 +1,21 @@
 [build-system]
+build-backend = "cmeel.build"
 requires = [
   "cmeel[build]",
   "numpy >= 1.20 ; python_version <= '3.7'",
   "numpy >= 1.23 ; python_version >= '3.8'"
 ]
-build-backend = "cmeel.build"
 
 [project]
-name = "cmeel-boost"
-version = "1.81.0"
-description = "cmeel distribution for boost, which provides free peer-reviewed portable C++ source libraries."
-requires-python = ">= 3.7"
-license = "BSL-1.0"
 dependencies = [
   "numpy >= 1.20 ; python_version <= '3.7'",
   "numpy >= 1.23 ; python_version >= '3.8'"
 ]
+description = "cmeel distribution for boost, which provides free peer-reviewed portable C++ source libraries."
+license = "BSL-1.0"
+name = "cmeel-boost"
+requires-python = ">= 3.7"
+version = "1.81.0"
 
 [project.urls]
 homepage = "https://github.com/cmake-wheel/cmeel-boost"
@@ -24,3 +24,6 @@ repository = "https://github.com/cmake-wheel/cmeel-boost.git"
 [tool.cmeel]
 build-number = 12
 run-tests = false
+
+[tool.tomlsort]
+all = true
