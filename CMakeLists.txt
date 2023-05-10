@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-set(Boost_VERSION_STRING 1.81.0)
+set(Boost_VERSION_STRING 1.82.0)
 
 project(cmeel-boost VERSION ${Boost_VERSION_STRING})
 
