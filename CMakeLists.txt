@@ -40,7 +40,7 @@ ExternalProject_Add(
   Boost
   URL "https://boostorg.jfrog.io/artifactory/main/release/${Boost_VERSION_STRING}/source/${Boost_ARCHIVE}"
   URL_HASH
-    "SHA256=c0685b68dd44cc46574cce86c4e17c0f611b15e195be9848dfd0769a0a207628"
+    "SHA256=6478edfe2f3305127cffe8caf73ea0176c53769f4bf1585be237eb30798c3b8e"
   DOWNLOAD_EXTRACT_TIMESTAMP OFF
   BUILD_IN_SOURCE ON
   CONFIGURE_COMMAND ${CONFIGURE_COMMAND}
