@@ -7,7 +7,7 @@ dependencies = ["numpy >=1.23, <1.25"]
 description = "cmeel distribution for boost, which provides free peer-reviewed portable C++ source libraries."
 license = "BSL-1.0"
 name = "cmeel-boost"
-requires-python = ">= 3.8"
+requires-python = ">= 3.8, < 3.12"
 version = "1.83.0"
 
 [project.urls]
