@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-set(Boost_VERSION_STRING 1.82.0)
+set(Boost_VERSION_STRING 1.83.0)
 
 project(cmeel-boost VERSION ${Boost_VERSION_STRING})
 
@@ -39,15 +39,17 @@ include(ExternalProject)
 ExternalProject_Add(
   Boost
   URL "https://boostorg.jfrog.io/artifactory/main/release/${Boost_VERSION_STRING}/source/${Boost_ARCHIVE}"
-      DOWNLOAD_EXTRACT_TIMESTAMP
-      OFF
+  URL_HASH
+    "SHA256=c0685b68dd44cc46574cce86c4e17c0f611b15e195be9848dfd0769a0a207628"
+  DOWNLOAD_EXTRACT_TIMESTAMP OFF
   BUILD_IN_SOURCE ON
   CONFIGURE_COMMAND ${CONFIGURE_COMMAND}
   # append python configuration to generated project-config.jam
   COMMAND
     ${Python3_EXECUTABLE} "-c"
     "with open('${CMAKE_BINARY_DIR}/python.jam', 'a+') as a, open('project-config.jam') as b: a.write(b.read())"
-  COMMAND mv "${CMAKE_BINARY_DIR}/python.jam" "project-config.jam"
+  COMMAND ${CMAKE_COMMAND} "-E" "rename" "${CMAKE_BINARY_DIR}/python.jam"
+          "project-config.jam"
   BUILD_COMMAND ${BUILD_COMMAND}
   INSTALL_COMMAND ${BUILD_COMMAND} "install")
 

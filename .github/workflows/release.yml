@@ -32,17 +32,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: 'true'
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
       - name: Set up QEMU
         if: matrix.arch == 'aarch64'
         uses: docker/setup-qemu-action@v2
         with:
           platforms: all
-      - run: python -m pip install -U pip
-      - run: python -m pip install cibuildwheel
-      - run: python -m cibuildwheel --output-dir wh
+      - run: pipx install cibuildwheel
+      - run: cibuildwheel --output-dir wh
         env:
           CIBW_BUILD: ${{ matrix.build }}
           CIBW_ARCHS: ${{ matrix.arch }}
@@ -60,12 +56,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
       - uses: actions/download-artifact@v3
-      - run: python -m pip install twine
-      - run: python -m twine upload -u __token__ -p "${{ secrets.PYPI_TOKEN }}" artifact/cmeel_boost*.whl
+      - run: pipx install twine
+      - run: twine upload -u __token__ -p "${{ secrets.PYPI_TOKEN }}" artifact/cmeel_boost*.whl
       - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" artifact/cmeel_boost*.whl
         env:
