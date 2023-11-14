@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - "v*"
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main
 
 env:
   CMEEL_LOG_LEVEL: DEBUG
@@ -53,6 +58,7 @@ jobs:
 
   release:
     needs: ["build"]
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
