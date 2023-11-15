@@ -78,6 +78,14 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - run: curl https://github.com/nim65s.gpg | gpg --import
+      - name: validate signature
+        run: >
+          git verify-tag --raw ${{ github.ref_name }} 2>&1
+          | grep -q 'VALIDSIG 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28'
       - uses: actions/download-artifact@v3
       - run: pipx install twine
       - run: twine upload -u __token__ -p "${{ secrets.PYPI_TOKEN }}" artifact/cmeel_boost*.whl
