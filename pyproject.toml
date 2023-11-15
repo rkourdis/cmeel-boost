@@ -22,6 +22,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-boost"
 repository = "https://github.com/cmake-wheel/cmeel-boost.git"
 
 [tool.cmeel]
+check-relocatable = false
 run-tests = false
 
 [tool.tomlsort]
