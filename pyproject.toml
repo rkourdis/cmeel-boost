@@ -20,6 +20,7 @@ version = "1.83.0"
 [project.urls]
 homepage = "https://github.com/cmake-wheel/cmeel-boost"
 repository = "https://github.com/cmake-wheel/cmeel-boost.git"
+upstream = "https://www.boost.org/"
 
 [tool.cmeel]
 build-number = 0
