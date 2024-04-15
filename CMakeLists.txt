@@ -45,11 +45,11 @@ ExternalProject_Add(
   BUILD_IN_SOURCE ON
   CONFIGURE_COMMAND ${CONFIGURE_COMMAND}
   # append python configuration to generated project-config.jam
+  COMMAND ${CMAKE_COMMAND} "-E" "rename" "${CMAKE_BINARY_DIR}/python.jam"
+  "project-config.jam"
   COMMAND
     ${Python3_EXECUTABLE} "-c"
     "with open('${CMAKE_BINARY_DIR}/python.jam', 'a+') as a, open('project-config.jam') as b: a.write(b.read())"
-  COMMAND ${CMAKE_COMMAND} "-E" "rename" "${CMAKE_BINARY_DIR}/python.jam"
-          "project-config.jam"
   BUILD_COMMAND ${BUILD_COMMAND}
   INSTALL_COMMAND ${BUILD_COMMAND} "install")
 
